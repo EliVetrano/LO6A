@@ -19,6 +19,8 @@ public abstract class GamePiece implements Drawable {
 	// Stores the piece location, which will be needed to interact
 	// with the player. 
 	private int location;
+	// Last player position seen by this piece, used to recognize a two-square jump.
+	private int prevLocation;
 
 	/**
 	 * Constructor for the game piece
@@ -69,6 +71,19 @@ public abstract class GamePiece implements Drawable {
 		// Ensure the location remains on the board
 		if (newLocation >= 0 && newLocation < GameEngine.BOARD_SIZE)
 			location = newLocation;
+	}
+	
+	/** 
+	 * Record this turn's position and report whether the player jumped. 
+	 */
+	protected boolean playerJumped(int playerLocation) {
+		boolean jumped = Math.abs(playerLocation - prevLocation) == 2;
+		prevLocation = playerLocation;
+		return jumped;
+	}
+	
+	public void setPrevLocation(int location) {
+		prevLocation = location;
 	}
 	
 	@Override

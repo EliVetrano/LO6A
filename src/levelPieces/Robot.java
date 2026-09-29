@@ -15,11 +15,17 @@ public class Robot extends GamePiece implements Moveable {
     	super('B', "Robot", location); 
     }
     
-    @Override public InteractionResult interact(Drawable[] board, int playerLocation) {
+    //override the interactionresult interface to check for only none
+    
+    @Override 
+    public InteractionResult interact(Drawable[] board, int playerLocation) {
         return InteractionResult.NONE;
     }
     
-    @Override public void move(Drawable[] board, int playerLocation) {
+    //override the moveable interface to change piece movement
+    
+    @Override 
+    public void move(Drawable[] board, int playerLocation) {
         int next = getLocation() + 1;
         
         if (next < board.length && board[next] == null) {

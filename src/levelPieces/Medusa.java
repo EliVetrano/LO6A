@@ -13,6 +13,8 @@ public class Medusa extends GamePiece {
     	super('M', "Medusa", location); 
     }
     
+    //override the interactionresult interface to check for kill or none
+    
     @Override 
     public InteractionResult interact(Drawable[] board, int playerLocation) {
     	

@@ -15,6 +15,8 @@ public class FlashBang extends GamePiece {
     	super('F', "FlashBang", location); 
     }
     
+    //override the interactionresult interface to check for repel or none
+    
     @Override 
     public InteractionResult interact(Drawable[] board, int playerLocation) {
     	

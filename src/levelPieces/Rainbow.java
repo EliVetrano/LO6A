@@ -18,6 +18,8 @@ public class Rainbow extends GamePiece implements Moveable {
     public Rainbow(int location) { 
     	super('R', "Rainbow", location); 
     }
+    
+    //override the interactionresult interface to check for advance or none
 
     @Override 
     public InteractionResult interact(Drawable[] board, int playerLocation) {
@@ -28,6 +30,8 @@ public class Rainbow extends GamePiece implements Moveable {
     		return InteractionResult.NONE;
     	}
     }
+    
+    //override the moveable interface to change piece movement
 
     @Override 
     public void move(Drawable[] board, int playerLocation) {

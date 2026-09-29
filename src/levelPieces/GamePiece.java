@@ -74,7 +74,7 @@ public abstract class GamePiece implements Drawable {
 	}
 	
 	/** 
-	 * Record this turn's position and report whether the player jumped. 
+	 * return Record this turn's position and report whether the player jumped. 
 	 */
 	protected boolean playerJumped(int playerLocation) {
 		boolean jumped = Math.abs(playerLocation - prevLocation) == 2;

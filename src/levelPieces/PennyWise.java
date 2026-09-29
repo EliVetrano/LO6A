@@ -18,6 +18,8 @@ public class PennyWise extends GamePiece implements Moveable {
     	super('Y', "PennyWise", location); 
     }
     
+    //override the interactionresult interface to check for hit or none
+    
     @Override 
     public InteractionResult interact(Drawable[] board, int playerLocation) {
     	
@@ -29,6 +31,8 @@ public class PennyWise extends GamePiece implements Moveable {
     		return InteractionResult.NONE;
     	}
     }
+    
+    //override the moveable interface to change piece movement
     
     @Override 
     public void move(Drawable[] board, int playerLocation) {

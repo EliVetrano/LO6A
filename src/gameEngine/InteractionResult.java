@@ -7,6 +7,7 @@ package gameEngine;
  * @author Cyndi Rader
  * 
  */
+//added the REPEL action
 public enum InteractionResult {
 	HIT, KILL, ADVANCE, GET_POINT, REPEL, NONE;
 }

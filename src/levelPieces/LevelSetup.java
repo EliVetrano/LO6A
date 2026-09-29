@@ -25,21 +25,21 @@ public class LevelSetup{
 		if (num == 1) {
             addTo(new FlashBang(7));
             addTo(new Coin(4));
-            addTo(new Coin(10));
+            addTo(new Coin(14));
             addTo(new PennyWise(12));
-            addTo(new Robot(2));
-            addTo(new Rainbow(16));
-            addTo(new Medusa(20));
-            board[0] = new Gate();
+            addTo(new Robot(3));
+            addTo(new Rainbow(18));
+            addTo(new Medusa(15));
+            board[10] = new Gate();
         } else if (num == 2) {
             addTo(new FlashBang(12));
-            addTo(new Coin(7));
-            addTo(new Coin(17));
+            addTo(new Coin(3));
+            addTo(new Coin(15));
             addTo(new PennyWise(14));
             addTo(new Robot(6));
-            addTo(new Rainbow(18));
-            addTo(new Medusa(20));
-            board[0] = new Gate();
+            addTo(new Medusa(19));
+            board[5] = new Gate();
+            board[20] = new Gate();
         }
 	}
 	

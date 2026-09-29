@@ -15,7 +15,10 @@ public class Coin extends GamePiece {
     	super('C', "Coin", location); 
     }
     
-    @Override public InteractionResult interact(Drawable[] board, int playerLocation) {
+    //override the interactionresult interface to check for get point or none
+    
+    @Override 
+    public InteractionResult interact(Drawable[] board, int playerLocation) {
         if (!collected && playerLocation == getLocation()) {
         	
             collected = true;

@@ -96,6 +96,24 @@ public class GameEngine {
 		System.out.println("The object of the game is to capture prizes without being killed.");
 		System.out.println("You need " + Player.POINTS_TO_ADVANCE + 
 				" points to advance, you die after " + Player.POINTS_TO_DIE + " hits.") ;
+		if(currentLevel == 1) {
+			System.out.println("P - represents the player");
+			System.out.println("C - coins to collect (2 to advance to next level)");
+			System.out.println("F - a flashbang that moves the player backwards");
+			System.out.println("B - an annoying robot");
+			System.out.println("Y - PennyWise the clown will hit players that happen to stand by him");
+			System.out.println("R - the lucky rainbow that helps the player");
+			System.out.println("M - Medusa will immediately kill a player close by");
+			System.out.println("G - a gate that does nothing");
+		} else {
+			System.out.println("P - represents the player");
+			System.out.println("C - coins to collect (2 to advance to next level)");
+			System.out.println("F - a flashbang that moves the player backwards");
+			System.out.println("B - an annoying robot");
+			System.out.println("G - a gate that does nothing");
+			System.out.println("Y - PennyWise the clown will hit players that happen to stand by him");
+			System.out.println("M - Medusa will immediately kill a player close by");
+		}
 	}
 	
 

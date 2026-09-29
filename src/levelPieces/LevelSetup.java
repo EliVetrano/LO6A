@@ -23,21 +23,24 @@ public class LevelSetup{
 		mPieces = new ArrayList<Moveable>();
 		intPieces = new ArrayList<GamePiece>();
 		if (num == 1) {
+			pLocation = 2;
             addTo(new FlashBang(7));
             addTo(new Coin(4));
             addTo(new Coin(14));
             addTo(new PennyWise(12));
             addTo(new Robot(3));
             addTo(new Rainbow(18));
-            addTo(new Medusa(15));
+            addTo(new Medusa(18));
             board[10] = new Gate();
         } else if (num == 2) {
+    		pLocation = 10;
             addTo(new FlashBang(12));
             addTo(new Coin(3));
             addTo(new Coin(15));
             addTo(new PennyWise(14));
             addTo(new Robot(6));
             addTo(new Medusa(19));
+            addTo(new Trap(9));
             board[5] = new Gate();
             board[20] = new Gate();
         }

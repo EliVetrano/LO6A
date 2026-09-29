@@ -1,5 +1,6 @@
 /** 
- * Walks right until the next square is blocked or the board ends. 
+ * Walks right until the next square is blocked or the board ends.
+ * isn't on the same square  
 */
 
 
@@ -26,10 +27,16 @@ public class Robot extends GamePiece implements Moveable {
     
     @Override 
     public void move(Drawable[] board, int playerLocation) {
-        int next = getLocation() + 1;
+    	int next;
+    	boolean dir = true;
+    	if(dir) {
+    		next = getLocation() + 1;
+    	} else {
+    		next = getLocation() - 1;
+    	}
         
         if (next < board.length && board[next] == null) {
-        	
+        
             board[getLocation()] = null;
             board[next] = this;
             setLocation(next);

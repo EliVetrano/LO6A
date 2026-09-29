@@ -96,7 +96,7 @@ public class GameEngine {
 		System.out.println("The object of the game is to capture prizes without being killed.");
 		System.out.println("You need " + Player.POINTS_TO_ADVANCE + 
 				" points to advance, you die after " + Player.POINTS_TO_DIE + " hits.") ;
-		if(currentLevel == 1) {
+		if(currentLevel == 1 || currentLevel == 0) {
 			System.out.println("P - represents the player");
 			System.out.println("C - coins to collect (2 to advance to next level)");
 			System.out.println("F - a flashbang that moves the player backwards");
@@ -113,6 +113,7 @@ public class GameEngine {
 			System.out.println("G - a gate that does nothing");
 			System.out.println("Y - PennyWise the clown will hit players that happen to stand by him");
 			System.out.println("M - Medusa will immediately kill a player close by");
+			System.out.println("T - will kill anyone unfortunate enough to step on it ");
 		}
 	}
 	
@@ -222,6 +223,12 @@ public class GameEngine {
 				player.wonAdvance();
 				System.out.println("\nGood news, you have won an advance!\n");
 				// can only advance once
+				break;
+			}
+			if (result == InteractionResult.REPEL) {
+				player.knockBackTwo();
+				System.out.println("\nFlashbang! You were pushed two squares back.\n");
+				// Resolve interactions at the new location on the next turn.
 				break;
 			}
 		}

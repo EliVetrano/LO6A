@@ -25,6 +25,7 @@ public class Player implements Drawable {
 
 	// Variables to track the player status
 	private int location;
+	private int lastMoveDirection;
 	private int levelPoints;
 	private int damagePoints;
 	private char symbol = 'P' ;
@@ -166,6 +167,14 @@ public class Player implements Drawable {
 	private void displayMenu() {
 		System.out.print("Enter move (0:Quit; 1/2: move left/right; 3/4: jump left/right): ");
 		System.out.println();
+	}
+	
+	/** Push the player two squares opposite their most recent move. */
+	public void knockBackTwo() {
+		if (lastMoveDirection != 0) {
+			location = Math.max(0, Math.min(GameEngine.BOARD_SIZE - 1,
+					location - 2 * lastMoveDirection));
+		}
 	}
 
 	/**

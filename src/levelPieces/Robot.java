@@ -9,11 +9,14 @@ package levelPieces;
 import gameEngine.Drawable;
 import gameEngine.InteractionResult;
 import gameEngine.Moveable;
+import gameEngine.GameEngine;
 
 public class Robot extends GamePiece implements Moveable {
+	boolean dir;
 	
     public Robot(int location) { 
     	super('B', "Robot", location); 
+    	dir = true;
     }
     
     //override the interactionresult interface to check for only none
@@ -24,18 +27,40 @@ public class Robot extends GamePiece implements Moveable {
     }
     
     //override the moveable interface to change piece movement
+    //move to the right until it can't, then move left
     
     @Override 
     public void move(Drawable[] board, int playerLocation) {
-    	int next;
-    	boolean dir = true;
-    	if(dir) {
-    		next = getLocation() + 1;
-    	} else {
-    		next = getLocation() - 1;
+    	int next = getLocation();
+    	boolean found = false;
+    	while(!found) {
+    		if(this.dir) {
+    			for(int i = getLocation() + 1; i < GameEngine.BOARD_SIZE; i++) {
+    				if(board[i] == null && !found && i != playerLocation) {
+    					next = i;
+    					found = true;
+    				}
+    			}
+    		
+    			if(!found) {
+    				this.dir = false;
+    			}
+
+    		} else {
+    			for(int i = getLocation() - 1; i >= 0; i--) {
+    				if(board[i] == null && !found && i != playerLocation) {
+    					next = i;
+    					found = true;
+    				}
+    			}
+    		
+    			if(!found) {
+    			this.dir = true;
+    			}
+    		}
     	}
         
-        if (next < board.length && board[next] == null) {
+        if (next < board.length) {
         
             board[getLocation()] = null;
             board[next] = this;

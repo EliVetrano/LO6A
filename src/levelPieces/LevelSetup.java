@@ -30,7 +30,7 @@ public class LevelSetup{
             addTo(new PennyWise(12));
             addTo(new Robot(3));
             addTo(new Rainbow(18));
-            addTo(new Medusa(18));
+            addTo(new Medusa(19));
             board[10] = new Gate();
         } else if (num == 2) {
     		pLocation = 10;

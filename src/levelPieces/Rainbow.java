@@ -9,6 +9,7 @@ import java.util.Random;
 import gameEngine.Drawable;
 import gameEngine.InteractionResult;
 import gameEngine.Moveable;
+import gameEngine.GameEngine;
 
 
 public class Rainbow extends GamePiece implements Moveable {
@@ -37,18 +38,11 @@ public class Rainbow extends GamePiece implements Moveable {
     public void move(Drawable[] board, int playerLocation) {
     	
         ArrayList<Integer> choices = new ArrayList<Integer>();
-        int left = getLocation() - 1;
-        int right = getLocation() + 1;
         
-        if (left >= 0 && board[left] == null) {
-        	choices.add(left);
-        }
-        
-        if (right < board.length && board[right] == null) {
-        	choices.add(right);
-        }
-        if (choices.isEmpty()) {
-        	return;
+        for(int i = 0; i < GameEngine.BOARD_SIZE; i++) {
+        	if(board[i] == null && i != playerLocation) {
+        		choices.add(i);
+        	}
         }
 
         int next = choices.get(random.nextInt(choices.size()));
